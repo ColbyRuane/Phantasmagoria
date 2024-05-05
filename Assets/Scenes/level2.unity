@@ -10208,10 +10208,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 9181288711181062949, guid: fb537cb7b4e12694bb0bdb5aafd4b1bb, type: 3}
-      propertyPath: groundCheckRadius
-      value: 0.2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

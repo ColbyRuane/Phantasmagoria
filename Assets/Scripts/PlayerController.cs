@@ -98,7 +98,7 @@ public class PlayerController : MonoBehaviour
         // allow for jumps when not grounded within the grace period
         if (Time.time - lastGroundedTime <= jumpButtonGracePeriod)
         {
-            ySpeed = 0;
+            ySpeed = 0f;
             animator.SetBool("isGrounded", true);
             animator.SetBool("isJumping", false);
             isJumping = false;
@@ -146,6 +146,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && isGrounded && (Time.time - lastAttack >= attackCooldown))
         {
             animator.SetTrigger("isAttack");
+            Debug.Log("You performed an attack.");
             // grab instance of attack trigger to compare with attack cooldown
             lastAttack = Time.time;
             // detect enemies in range of attack

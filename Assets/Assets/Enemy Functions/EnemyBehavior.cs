@@ -23,10 +23,10 @@ public class EnemyBehavior : MonoBehaviour
     public float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange;
 
-    // reference to enemy animator controller
+    // reference to animator
     Animator animator;
 
-    // reference to enemy hit boxes
+    // reference to box collider
     BoxCollider boxCollider;
 
     private void Awake()
@@ -74,7 +74,6 @@ public class EnemyBehavior : MonoBehaviour
                 animator.SetTrigger("Attack");
             }
             
-
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
         }
@@ -97,14 +96,11 @@ public class EnemyBehavior : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        var player = GameObject.Find("Player").transform;
-
-        if (player != null)
+        if (other.CompareTag("Player"))
         {
-            print("HIT!");
+            other.GetComponent<PlayerStats>().TakeDamage(10f);
         }
     }
-
 
     // Start is called before the first frame update
     void Start()
